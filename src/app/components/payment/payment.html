@@ -1,0 +1,20 @@
+<section class="bank-shell page-fade">
+  <div class="bank-layout">
+    <section class="bank-card" style="max-width: 720px; margin: 0 auto;">
+      <span class="eyebrow">Payment</span>
+      <h2>Make an EMI payment</h2>
+      <p class="section-copy">Enter the payment amount to post it against your active loan.</p>
+
+      <div class="bank-form">
+        <div class="form-grid">
+          <div class="field field--full">
+            <label for="paymentAmount">Payment amount</label>
+            <input id="paymentAmount" name="paymentAmount" type="number" [(ngModel)]="form.amount" placeholder="Enter payment amount" />
+          </div>
+        </div>
+
+        <button class="btn-bank-secondary" type="button" (click)="pay()">Pay Now</button>
+      </div>
+    </section>
+  </div>
+</section>

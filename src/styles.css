@@ -1,1 +1,364 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg: #f3f7fb;
+  --surface: rgba(255, 255, 255, 0.94);
+  --surface-strong: #ffffff;
+  --text: #142033;
+  --muted: #637083;
+  --primary: #0d4f8b;
+  --primary-strong: #083a66;
+  --secondary: #0f766e;
+  --border: rgba(23, 44, 77, 0.12);
+  --shadow: 0 24px 70px rgba(17, 38, 68, 0.12);
+  --radius-xl: 28px;
+  --radius-lg: 18px;
+  --radius-md: 12px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(13, 79, 139, 0.18), transparent 32%),
+    radial-gradient(circle at right center, rgba(15, 118, 110, 0.12), transparent 25%),
+    linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+}
+
+a {
+  color: inherit;
+}
+
+.bank-shell {
+  min-height: 100vh;
+  padding: 48px 20px 72px;
+}
+
+.bank-layout {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  gap: 28px;
+  align-items: start;
+}
+
+.bank-layout--split {
+  grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1.1fr);
+}
+
+.bank-hero,
+.bank-card,
+.bank-table-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.bank-hero {
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bank-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -80px -120px auto;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(13, 79, 139, 0.18), transparent 68%);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(13, 79, 139, 0.08);
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bank-hero h1,
+.bank-card h2 {
+  margin: 18px 0 10px;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.bank-hero h1 {
+  font-size: clamp(2rem, 3vw, 3.3rem);
+}
+
+.bank-card h2 {
+  font-size: 1.7rem;
+}
+
+.hero-copy,
+.section-copy,
+.empty-state,
+.table-subtitle {
+  color: var(--muted);
+}
+
+.hero-points,
+.detail-list,
+.summary-grid,
+.metric-grid,
+.action-row {
+  display: grid;
+  gap: 14px;
+}
+
+.hero-points {
+  margin: 28px 0 0;
+}
+
+.hero-point,
+.metric-box,
+.summary-item,
+.detail-item {
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(13, 79, 139, 0.08);
+  padding: 18px;
+}
+
+.hero-point strong,
+.detail-item strong,
+.summary-item strong,
+.metric-box strong {
+  display: block;
+  color: var(--text);
+}
+
+.hero-point span,
+.detail-item span,
+.summary-item span,
+.metric-box span {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.summary-item strong,
+.metric-box strong {
+  font-size: 1.25rem;
+  margin-top: 6px;
+}
+
+.bank-card {
+  border-radius: var(--radius-xl);
+  padding: 34px;
+}
+
+.bank-form {
+  display: grid;
+  gap: 18px;
+}
+
+.form-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field label {
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: #243348;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid rgba(21, 48, 86, 0.12);
+  border-radius: var(--radius-md);
+  padding: 14px 15px;
+  font-size: 0.98rem;
+  background: var(--surface-strong);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field textarea {
+  min-height: 108px;
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: rgba(13, 79, 139, 0.55);
+  box-shadow: 0 0 0 4px rgba(13, 79, 139, 0.12);
+}
+
+.field--full {
+  grid-column: 1 / -1;
+}
+
+.btn-bank,
+.btn-bank-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 0 22px;
+  border: none;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-bank {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+  box-shadow: 0 16px 28px rgba(13, 79, 139, 0.22);
+}
+
+.btn-bank-secondary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--secondary), #0a5b55);
+  box-shadow: 0 16px 28px rgba(15, 118, 110, 0.22);
+}
+
+.btn-bank:hover,
+.btn-bank-secondary:hover {
+  transform: translateY(-1px);
+}
+
+.form-note {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.summary-grid,
+.metric-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.bank-table-card {
+  max-width: 1180px;
+  margin: 0 auto;
+  border-radius: var(--radius-xl);
+  padding: 30px;
+}
+
+.table-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: end;
+  margin-bottom: 20px;
+}
+
+.table-heading h2 {
+  margin: 8px 0 6px;
+  font-size: 1.6rem;
+}
+
+.bank-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.bank-table th,
+.bank-table td {
+  padding: 16px 14px;
+  text-align: left;
+  border-bottom: 1px solid rgba(21, 48, 86, 0.08);
+}
+
+.bank-table th {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  background: rgba(13, 79, 139, 0.04);
+}
+
+.bank-table tr:last-child td {
+  border-bottom: none;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  background: rgba(13, 79, 139, 0.08);
+  color: var(--primary);
+}
+
+.amount {
+  font-weight: 700;
+}
+
+.empty-state {
+  padding: 24px 0 8px;
+}
+
+.page-fade {
+  animation: page-fade 0.55s ease;
+}
+
+@keyframes page-fade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .bank-layout--split,
+  .form-grid,
+  .summary-grid,
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bank-hero,
+  .bank-card,
+  .bank-table-card {
+    padding: 24px;
+  }
+
+  .table-heading {
+    flex-direction: column;
+    align-items: start;
+  }
+}

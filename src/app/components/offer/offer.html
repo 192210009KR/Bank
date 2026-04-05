@@ -1,0 +1,49 @@
+<section class="bank-shell page-fade">
+  <div class="bank-layout">
+    <section class="bank-card">
+      <span class="eyebrow">Approved Offer</span>
+      <h2>Review your personalized loan terms</h2>
+      <p class="section-copy">
+        Once accepted, this offer becomes your active loan account.
+      </p>
+
+      <div *ngIf="offer; else noOffer">
+        <div class="summary-grid">
+          <div class="summary-item">
+            <span>Sanctioned amount</span>
+            <strong>Rs. {{ offer.amount || offer.principal || '-' }}</strong>
+          </div>
+          <div class="summary-item">
+            <span>Interest rate</span>
+            <strong>{{ offer.interestRate || '-' }}%</strong>
+          </div>
+          <div class="summary-item">
+            <span>Tenure</span>
+            <strong>{{ offer.tenure || '-' }} months</strong>
+          </div>
+        </div>
+
+        <div class="detail-list">
+          <div class="detail-item">
+            <strong>Offer ID</strong>
+            <span>{{ offer.offerId || '-' }}</span>
+          </div>
+          <div class="detail-item">
+            <strong>Estimated EMI</strong>
+            <span>Rs. {{ offer.emi || '-' }}</span>
+          </div>
+        </div>
+
+        <div class="action-row" style="margin-top: 24px;">
+          <button class="btn-bank-secondary" type="button" (click)="accept()">Accept Offer</button>
+        </div>
+      </div>
+
+      <ng-template #noOffer>
+        <p class="empty-state">
+          No offer is available yet. Complete the earlier steps and refresh this page.
+        </p>
+      </ng-template>
+    </section>
+  </div>
+</section>

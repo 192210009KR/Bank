@@ -1,0 +1,77 @@
+<section class="bank-shell page-fade">
+  <div class="bank-layout bank-layout--split">
+    <aside class="bank-hero">
+      <span class="eyebrow">Retail Banking</span>
+      <h1>Open your digital loan profile in minutes.</h1>
+      <p class="hero-copy">
+        Start a secure onboarding journey with bank-grade identity checks, transparent
+        application steps, and real-time offer tracking.
+      </p>
+
+      <div class="hero-points">
+        <div class="hero-point">
+          <strong>Fast onboarding</strong>
+          <span>Register once and continue your application across every step.</span>
+        </div>
+        <div class="hero-point">
+          <strong>Secure verification</strong>
+          <span>KYC, application review, and disbursal status in one experience.</span>
+        </div>
+        <div class="hero-point">
+          <strong>Clear decisions</strong>
+          <span>Review approved offers, repayment plans, and account activity.</span>
+        </div>
+      </div>
+    </aside>
+
+    <section class="bank-card">
+      <span class="eyebrow">Customer Signup</span>
+      <h2>Create your banking profile</h2>
+      <p class="section-copy">
+        Enter your basic details to begin the loan application workflow.
+      </p>
+
+      <form class="bank-form" (ngSubmit)="submit()">
+        <div class="form-grid">
+          <div class="field">
+            <label for="fullName">Full name</label>
+            <input id="fullName" name="fullName" [(ngModel)]="form.fullName" placeholder="Enter customer name" />
+          </div>
+
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" [(ngModel)]="form.email" placeholder="name@example.com" />
+          </div>
+
+          <div class="field">
+            <label for="phone">Mobile number</label>
+            <input id="phone" name="phone" [(ngModel)]="form.phone" placeholder="Enter mobile number" />
+          </div>
+
+          <div class="field">
+            <label for="pan">PAN / Customer ID</label>
+            <input id="pan" name="pan" [(ngModel)]="form.pan" placeholder="Reference identifier" />
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" [(ngModel)]="form.password" placeholder="Create a password" />
+          </div>
+
+          <div class="field">
+            <label for="confirmPassword">Confirm password</label>
+            <input id="confirmPassword" name="confirmPassword" type="password" [(ngModel)]="form.confirmPassword" placeholder="Re-enter password" />
+          </div>
+
+          <div class="field field--full">
+            <label for="address">Residential address</label>
+            <textarea id="address" name="address" [(ngModel)]="form.address" placeholder="Enter current address"></textarea>
+          </div>
+        </div>
+
+        <button class="btn-bank" type="submit">Continue to KYC</button>
+        <p class="form-note">Your details are used only for onboarding and verification.</p>
+      </form>
+    </section>
+  </div>
+</section>

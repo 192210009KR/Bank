@@ -1,0 +1,37 @@
+<section class="bank-shell page-fade">
+  <div class="bank-layout">
+    <section class="bank-card">
+      <span class="eyebrow">Loan Dashboard</span>
+      <h2>Track your live loan account</h2>
+      <p class="section-copy">
+        View your active balance, EMI amount, and repayment actions from one place.
+      </p>
+
+      <div *ngIf="loan; else noLoan">
+        <div class="metric-grid">
+          <div class="metric-box">
+            <span>Principal</span>
+            <strong>Rs. {{ loan.principal }}</strong>
+          </div>
+          <div class="metric-box">
+            <span>EMI</span>
+            <strong>Rs. {{ loan.emi }}</strong>
+          </div>
+          <div class="metric-box">
+            <span>Outstanding</span>
+            <strong>Rs. {{ loan.outstanding }}</strong>
+          </div>
+        </div>
+
+        <div class="action-row" style="margin-top: 26px; grid-template-columns: repeat(2, max-content);">
+          <a routerLink="/repayment" class="btn-bank">View Schedule</a>
+          <a routerLink="/payment" class="btn-bank-secondary">Pay EMI</a>
+        </div>
+      </div>
+
+      <ng-template #noLoan>
+        <p class="empty-state">No live loan account is linked yet.</p>
+      </ng-template>
+    </section>
+  </div>
+</section>

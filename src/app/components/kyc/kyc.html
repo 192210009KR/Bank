@@ -1,0 +1,59 @@
+<section class="bank-shell page-fade">
+  <div class="bank-layout bank-layout--split">
+    <aside class="bank-hero">
+      <span class="eyebrow">Step 2</span>
+      <h1>Complete identity verification.</h1>
+      <p class="hero-copy">
+        Provide the compliance details required for a secure and fully auditable KYC review.
+      </p>
+
+      <div class="detail-list">
+        <div class="detail-item">
+          <strong>Customer reference</strong>
+          <span>{{ customerId || 'Generated after signup' }}</span>
+        </div>
+        <div class="detail-item">
+          <strong>Review outcome</strong>
+          <span>Verification leads directly into the loan application stage.</span>
+        </div>
+      </div>
+    </aside>
+
+    <section class="bank-card">
+      <span class="eyebrow">KYC Verification</span>
+      <h2>Submit verification details</h2>
+      <p class="section-copy">Fill in identity and income information for compliance checks.</p>
+
+      <form class="bank-form" (ngSubmit)="submit()">
+        <div class="form-grid">
+          <div class="field">
+            <label for="aadhaar">Aadhaar number</label>
+            <input id="aadhaar" name="aadhaar" [(ngModel)]="form.aadhaar" placeholder="12-digit Aadhaar number" />
+          </div>
+
+          <div class="field">
+            <label for="panNumber">PAN number</label>
+            <input id="panNumber" name="panNumber" [(ngModel)]="form.panNumber" placeholder="Permanent account number" />
+          </div>
+
+          <div class="field">
+            <label for="dob">Date of birth</label>
+            <input id="dob" name="dob" type="date" [(ngModel)]="form.dob" />
+          </div>
+
+          <div class="field">
+            <label for="monthlyIncome">Monthly income</label>
+            <input id="monthlyIncome" name="monthlyIncome" type="number" [(ngModel)]="form.monthlyIncome" placeholder="Enter monthly income" />
+          </div>
+
+          <div class="field field--full">
+            <label for="employment">Employment details</label>
+            <textarea id="employment" name="employment" [(ngModel)]="form.employment" placeholder="Role, company, and work profile"></textarea>
+          </div>
+        </div>
+
+        <button class="btn-bank" type="submit">Proceed to Loan Form</button>
+      </form>
+    </section>
+  </div>
+</section>

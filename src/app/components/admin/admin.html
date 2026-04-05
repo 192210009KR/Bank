@@ -1,0 +1,32 @@
+<section class="bank-shell page-fade">
+  <div class="bank-table-card">
+    <div class="table-heading">
+      <div>
+        <span class="eyebrow">Admin Console</span>
+        <h2>Application review queue</h2>
+        <p class="table-subtitle">Monitor submitted applications and current processing status.</p>
+      </div>
+    </div>
+
+    <table class="bank-table" *ngIf="applications.length; else noApplications">
+      <thead>
+        <tr>
+          <th>Application ID</th>
+          <th>Requested Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let app of applications">
+          <td>{{ app.applicationId }}</td>
+          <td class="amount">Rs. {{ app.amount }}</td>
+          <td><span class="status-pill">{{ app.status }}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #noApplications>
+      <p class="empty-state">No applications are available to review right now.</p>
+    </ng-template>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+<section class="bank-shell page-fade">
+  <div class="bank-layout bank-layout--split">
+    <aside class="bank-hero">
+      <span class="eyebrow">Secure Access</span>
+      <h1>Sign in with your email and password.</h1>
+      <p class="hero-copy">
+        Access your dashboard, approved offers, repayment schedule, and payment tools from one secure banking workspace.
+      </p>
+
+      <div class="hero-points">
+        <div class="hero-point">
+          <strong>Registered email login</strong>
+          <span>Use the same email address you entered during signup.</span>
+        </div>
+        <div class="hero-point">
+          <strong>Password-protected access</strong>
+          <span>Your account flow now follows a standard email and password login pattern.</span>
+        </div>
+      </div>
+    </aside>
+
+    <section class="bank-card">
+      <span class="eyebrow">Login</span>
+      <h2>Welcome back</h2>
+      <p class="section-copy">Enter your registered email address and password.</p>
+
+      <form class="bank-form" (ngSubmit)="login()">
+        <div class="form-grid">
+          <div class="field field--full">
+            <label for="loginEmail">Email address</label>
+            <input id="loginEmail" name="email" type="email" [(ngModel)]="form.email" placeholder="name@example.com" required />
+          </div>
+
+          <div class="field field--full">
+            <label for="loginPassword">Password</label>
+            <input id="loginPassword" name="password" type="password" [(ngModel)]="form.password" placeholder="Enter your password" required />
+          </div>
+        </div>
+
+        <p *ngIf="errorMessage" class="form-note" style="color: #b42318;">{{ errorMessage }}</p>
+
+        <button class="btn-bank" type="submit">Login</button>
+      </form>
+
+      <p class="form-note">
+        New user? <a routerLink="/signup" style="color: var(--primary); font-weight: 700;">Create an account</a>
+      </p>
+    </section>
+  </div>
+</section>

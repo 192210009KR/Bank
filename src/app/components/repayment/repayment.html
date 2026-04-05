@@ -1,0 +1,34 @@
+<section class="bank-shell page-fade">
+  <div class="bank-table-card">
+    <div class="table-heading">
+      <div>
+        <span class="eyebrow">Repayment Schedule</span>
+        <h2>Upcoming and completed installments</h2>
+        <p class="table-subtitle">Review due dates, EMI values, and payment status.</p>
+      </div>
+    </div>
+
+    <table class="bank-table" *ngIf="schedule.length; else noSchedule">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Due Date</th>
+          <th>EMI</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of schedule">
+          <td>{{ s.installmentNo }}</td>
+          <td>{{ s.dueDate }}</td>
+          <td class="amount">Rs. {{ s.emi }}</td>
+          <td><span class="status-pill">{{ s.status }}</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #noSchedule>
+      <p class="empty-state">Repayment data will appear here once the schedule is generated.</p>
+    </ng-template>
+  </div>
+</section>

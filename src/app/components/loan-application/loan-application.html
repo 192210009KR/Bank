@@ -1,0 +1,65 @@
+<section class="bank-shell page-fade">
+  <div class="bank-layout bank-layout--split">
+    <aside class="bank-hero">
+      <span class="eyebrow">Step 3</span>
+      <h1>Apply for the right borrowing amount.</h1>
+      <p class="hero-copy">
+        Share your requested amount and purpose so the bank can prepare a tailored offer.
+      </p>
+
+      <div class="hero-points">
+        <div class="hero-point">
+          <strong>Transparent assessment</strong>
+          <span>Loan size, tenure, and purpose influence available offers.</span>
+        </div>
+        <div class="hero-point">
+          <strong>Faster approvals</strong>
+          <span>Structured application data helps streamline underwriting.</span>
+        </div>
+      </div>
+    </aside>
+
+    <section class="bank-card">
+      <span class="eyebrow">Loan Application</span>
+      <h2>Tell us about your borrowing need</h2>
+      <p class="section-copy">Use realistic financial details for the most accurate decision.</p>
+
+      <form class="bank-form" (ngSubmit)="submit()">
+        <div class="form-grid">
+          <div class="field">
+            <label for="amount">Requested amount</label>
+            <input id="amount" name="amount" type="number" [(ngModel)]="form.amount" placeholder="Enter amount" />
+          </div>
+
+          <div class="field">
+            <label for="tenure">Tenure in months</label>
+            <input id="tenure" name="tenure" type="number" [(ngModel)]="form.tenure" placeholder="e.g. 24" />
+          </div>
+
+          <div class="field">
+            <label for="purpose">Loan purpose</label>
+            <select id="purpose" name="purpose" [(ngModel)]="form.purpose">
+              <option value="">Select purpose</option>
+              <option value="personal">Personal expense</option>
+              <option value="education">Education</option>
+              <option value="business">Business</option>
+              <option value="medical">Medical</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="salary">Net monthly salary</label>
+            <input id="salary" name="salary" type="number" [(ngModel)]="form.salary" placeholder="Enter monthly salary" />
+          </div>
+
+          <div class="field field--full">
+            <label for="notes">Additional notes</label>
+            <textarea id="notes" name="notes" [(ngModel)]="form.notes" placeholder="Optional information about your requirement"></textarea>
+          </div>
+        </div>
+
+        <button class="btn-bank" type="submit">Review Loan Offers</button>
+      </form>
+    </section>
+  </div>
+</section>
